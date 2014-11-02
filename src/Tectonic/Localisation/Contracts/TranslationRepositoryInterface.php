@@ -1,5 +1,5 @@
 <?php
-namespace Tectonic\Shift\Modules\Localisation\Translator\Contracts;
+namespace Tectonic\Localisation\Contracts;
 
 use Tectonic\Localisation\Translator\ResourceCriteria;
 

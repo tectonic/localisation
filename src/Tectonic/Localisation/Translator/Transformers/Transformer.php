@@ -1,8 +1,8 @@
 <?php
-namespace Tectonic\Shift\Modules\Localisation\Translator\Transformers;
+namespace Tectonic\Localisation\Translator\Transformers;
 
 use Tectonic\Localisation\Translator\ResourceCriteria;
-use Tectonic\Shift\Modules\Localisation\Translator\Contracts\TranslationRepositoryInterface;
+use Tectonic\Localisation\Contracts\TranslationRepositoryInterface;
 
 abstract class Transformer
 {
@@ -28,7 +28,7 @@ abstract class Transformer
                     $resources[$newResource] = [];
                 }
 
-                $resources = array_merge($resources[$newResource], $newResources[$newResource]);
+                $resources[$newResource] = array_merge($resources[$newResource], $newResources[$newResource]);
             }
         }
 
