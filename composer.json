@@ -16,8 +16,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Tectonic\\Localisation\\": "src/Tectonic/Localisation",
-            "Tests\\": "tests/Tests"
+            "Tectonic\\Localisation\\": "src/Tectonic/Localisation/",
+            "Tests\\": "tests/"
         }
     },
     "minimum-stability": "dev"
