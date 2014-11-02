@@ -12,4 +12,3 @@ interface TranslatableInterface
      */
     public function applyTranslation($languageCode, $field, $value);
 }
- 

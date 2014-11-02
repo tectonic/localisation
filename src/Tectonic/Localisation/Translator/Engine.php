@@ -29,11 +29,11 @@ class Engine
      *
      * @param mixed $object
      */
-    public function translate($object)
+    public function translate($object, $language = null)
     {
         foreach ($this->transformers as $transformer) {
             if ($transformer->isAppropriateFor($object)) {
-                return $transformer->transform($object);
+                return $transformer->transform($object, $language);
             }
         }
     }

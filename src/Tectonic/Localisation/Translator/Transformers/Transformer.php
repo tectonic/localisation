@@ -2,9 +2,17 @@
 namespace Tectonic\Shift\Modules\Localisation\Translator\Transformers;
 
 use Tectonic\Localisation\Translator\ResourceCriteria;
+use Tectonic\Shift\Modules\Localisation\Translator\Contracts\TranslationRepositoryInterface;
 
 abstract class Transformer
 {
+    /**
+     * Stores the repository that will be used for fetching translations.
+     *
+     * @var TranslationRepositoryInterface
+     */
+    protected $translationRepository;
+
     /**
      * Merges two resource arrays together.
      *
@@ -37,8 +45,24 @@ abstract class Transformer
     {
         $resourceCriteria = new ResourceCriteria;
 
+        foreach ($resources as $resource => $ids) {
+            $resourceCriteria->addResource($resource);
 
+            foreach ($ids as $id) {
+                $resourceCriteria->addId($resource, $id);
+            }
+        }
 
         return $this->translationRepository->getByResourceCriteria($resourceCriteria);
+    }
+
+    /**
+     * Sets the repository that will be used for translation retrieval.
+     *
+     * @param TranslationRepositoryInterface $repository
+     */
+    public function setTranslationRepository(TranslationRepositoryInterface $repository)
+    {
+        $this->translationRepository = $repository;
     }
 }

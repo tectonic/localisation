@@ -1,6 +1,8 @@
 <?php
 namespace Tectonic\Shift\Modules\Localisation\Translator\Contracts;
 
+use Tectonic\Localisation\Translator\ResourceCriteria;
+
 interface TranslationRepositoryInterface
 {
     /**
