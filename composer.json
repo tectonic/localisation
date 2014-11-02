@@ -5,18 +5,10 @@
         {
             "name": "Kirk Bushell",
             "email": "kirk@tectonic.com.au"
-        },
-	    {
-		    "name": "Tim Sheehan",
-		    "email": "tim@tectonic.com.au"
-	    },
-	    {
-		    "name": "Jason Morton",
-		    "email": "jason@tectonic.com.au"
-	    }
+        }
     ],
     "require": {
-        "php": ">=5.6.0",
+        "php": ">=5.6.0"
     },
     "require-dev": {
         "mockery/mockery": "dev-master@dev",
