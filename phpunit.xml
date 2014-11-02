@@ -10,18 +10,9 @@
          stopOnFailure="false"
          syntaxCheck="false"
 >
-    <!--<listeners>-->
-        <!--<listener file="./tests/Tests/ResultListener.php" class="Tests\ResultListener" />-->
-    <!--</listeners>-->
     <testsuites>
         <testsuite name="all">
             <directory suffix="Test.php">./tests/</directory>
-        </testsuite>
-        <testsuite name="acceptance">
-            <directory suffix="Test.php">./tests/Acceptance</directory>
-        </testsuite>
-        <testsuite name="unit">
-            <directory suffix="Test.php">./tests/Unit</directory>
         </testsuite>
     </testsuites>
 </phpunit>

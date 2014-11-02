@@ -34,7 +34,7 @@ class TransformerTest extends TestCase
         $resources = ['Resource' => [1, 2]];
 
         $this->transformer->getTranslations($resources);
-        
+
         $this->translationRepository->shouldHaveReceived('getByResourceCriteria')->once();
     }
 }
