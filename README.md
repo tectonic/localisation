@@ -17,6 +17,7 @@ composer require tectonic/localisation
 Translation of any object is done simply by passing the object to the translation engine:
 
 ```php
+<?php
 $object = new TranslatableObject();
 
 $translator = new \Tectonic\Localisation\Translator\Engine;
@@ -30,12 +31,14 @@ Default Localisation behaviour will not translate this object. Why? Because no t
 Transformers that know how to manage and translate various objects can be registered with the localisation engine:
 
 ```php
+<?php
 $translator->registerTransformer(new MyTransformer);
 ```
 
 MyTransformer should implement the TransformerInterface that is defined within the package, like so:
 
 ```php
+<?php
 class MyTransformer implements TransformerInterface {
     public function isAppropriateFor($object) {}
     public function transform($object) {}
