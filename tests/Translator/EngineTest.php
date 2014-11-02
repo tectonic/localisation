@@ -31,7 +31,7 @@ class EngineTest extends TestCase
     {
         $invalidTransformer = new InvalidTransformerStub;
         $objectInQuestion = m::mock('whatever');
-        
+
         $this->translator->registerTransformer($invalidTransformer);
 
         $this->assertNull($this->translator->translate($objectInQuestion));
