@@ -1,6 +1,8 @@
 <?php
 namespace Tectonic\Shift\Modules\Localisation\Translator\Transformers;
 
+use Tectonic\Localisation\Translator\ResourceCriteria;
+
 abstract class Transformer
 {
     /**
@@ -33,8 +35,10 @@ abstract class Transformer
      */
     public function getTranslations(array $resources)
     {
-        $localiser = App::make(Localiser::class);
+        $resourceCriteria = new ResourceCriteria;
 
-        return $localiser->getTranslationsByResources($resources);
+
+
+        return $this->translationRepository->getByResourceCriteria($resourceCriteria);
     }
 }

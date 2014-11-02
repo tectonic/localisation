@@ -2,7 +2,6 @@
 namespace Tectonic\Localisation\Translator;
 
 use Tectonic\Localisation\Contracts\TransformerInterface;
-use Tectonic\Shift\Modules\Localisation\Services\Localiser;
 
 /**
  * Class Engine
@@ -13,10 +12,6 @@ use Tectonic\Shift\Modules\Localisation\Services\Localiser;
  * Simply call the registerTransformer method:
  *
  *     $engine->registerTransformer($transformer);
- *
- * Or, you can call it via the Facade:
- *
- *     Translator::registerTransformer($transformer);
  *
  * @package Tectonic\Shift\Modules\Localisation\Support\Transformers
  */
