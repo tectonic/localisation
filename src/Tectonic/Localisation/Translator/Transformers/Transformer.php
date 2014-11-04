@@ -22,14 +22,12 @@ abstract class Transformer
      */
     public function mergeResources($resources, $newResources)
     {
-        foreach ($resources as $resource => $ids) {
-            foreach ($newResources as $newResource => $newIds) {
-                if (!isset($resources[$newResource])) {
-                    $resources[$newResource] = [];
-                }
-
-                $resources[$newResource] = array_merge($resources[$newResource], $newResources[$newResource]);
+        foreach ($newResources as $newResource => $newIds) {
+            if (!isset($resources[$newResource])) {
+                $resources[$newResource] = [];
             }
+
+            $resources[$newResource] = array_merge($resources[$newResource], $newResources[$newResource]);
         }
 
         return $resources;
