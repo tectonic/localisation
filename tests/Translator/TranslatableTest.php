@@ -11,23 +11,16 @@ class TranslatableTest extends TestCase
     public function init()
     {
         $this->translatable = new TranslatableStub;
-        $this->translatable->applyTranslation('en_GB', 'title', 'Colours');
-        $this->translatable->applyTranslation('en_US', 'title', 'Colors');
     }
 
-	public function testTranslationRetrievalForAllLanguages()
+	public function testTranslatableResource()
     {
-        $translations = $this->translatable->getTranslations();
-
-        $this->assertEquals('Colours', $translations['en_GB']['title']);
-        $this->assertEquals('Colors', $translations['en_US']['title']);
+        $this->assertEquals('TranslatableStub', $this->translatable->translatableResource());
     }
 
-    public function testTranslationRetrievalForASpecificLanguage()
+    public function testTranslatableFields()
     {
-        $translations = $this->translatable->getTranslations('en_GB');
-
-        $this->assertEquals('Colours', $translations['title']);
+        $this->assertEquals(['title'], $this->translatable->translatableFields());
     }
 }
  

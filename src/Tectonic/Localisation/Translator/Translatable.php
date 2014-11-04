@@ -4,39 +4,22 @@ namespace Tectonic\Localisation\Translator;
 trait Translatable
 {
     /**
-     * Stores the translations for each locale, field and value. Arrays look like so:
+     * Returns an array of the field names that can be used for translations.
      *
-     *  ['en_GB' => ['field' => 'value']];
-     *
-     * @var array
-     */
-    private $translations = [];
-
-    /**
-     * Applies a given translation to the localised attributes on the entity.
-     *
-     * @param string $languageCode
-     * @param string $field
-     * @param string $value
-     */
-    public function applyTranslation($languageCode, $field, $value)
-    {
-        $this->translations[$languageCode][$field] = $value;
-    }
-
-    /**
-     * By default, returns all translations for the object. If a valid language code is provided,
-     * then it will return only the translations for the required language.
-     *
-     * @param string|null $languageCode
      * @return array
      */
-    public function getTranslations($languageCode = null)
-    {
-        if (!is_null($languageCode)) {
-            return @$this->translations[$languageCode];
-        }
+    abstract public function translatableFields();
 
-        return $this->translations;
+    /**
+     * Returns the base name of the class, to be used as the resource when creating translations.
+     *
+     * @return string
+     */
+    public function translatableResource()
+    {
+        $object = get_class($this);
+        $namespace = explode('\\', $object);
+
+        return array_pop($namespace);
     }
 }
