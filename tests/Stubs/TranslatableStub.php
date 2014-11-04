@@ -12,7 +12,7 @@ class TranslatableStub
      *
      * @return array
      */
-    public function translatableFields()
+    public function getTranslatableFields()
     {
         return ['title'];
     }

@@ -15,12 +15,12 @@ class TranslatableTest extends TestCase
 
 	public function testTranslatableResource()
     {
-        $this->assertEquals('TranslatableStub', $this->translatable->translatableResource());
+        $this->assertEquals('TranslatableStub', $this->translatable->getResourceName());
     }
 
     public function testTranslatableFields()
     {
-        $this->assertEquals(['title'], $this->translatable->translatableFields());
+        $this->assertEquals(['title'], $this->translatable->getTranslatableFields());
     }
 }
  

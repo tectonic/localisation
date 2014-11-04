@@ -8,14 +8,14 @@ trait Translatable
      *
      * @return array
      */
-    abstract public function translatableFields();
+    abstract public function getTranslatableFields();
 
     /**
      * Returns the base name of the class, to be used as the resource when creating translations.
      *
      * @return string
      */
-    public function translatableResource()
+    public function getResourceName()
     {
         $object = get_class($this);
         $namespace = explode('\\', $object);
