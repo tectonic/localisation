@@ -1,5 +1,7 @@
 # Localisation
 
+[![Circle CI](https://circleci.com/gh/tectonic/localisation.png?style=badge)](https://circleci.com/gh/tectonic/localisation)
+
 This package helps to setup translations and implementations for given models, entities, collections or anything else. If you know to write a class to extend libraries, you can translate practically anything.
 
 Localisation in reality is a very basic package, simply defining the APIs and interfaces necessary for implementing translation components.
