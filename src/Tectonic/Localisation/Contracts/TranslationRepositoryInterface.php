@@ -14,4 +14,27 @@ interface TranslationRepositoryInterface
      * @return mixed
      */
     public function getByResourceCriteria(ResourceCriteria $criteria);
+
+    /**
+     * Returns a new instance of the model or entity.
+     *
+     * @return mixed
+     */
+    public function getNew();
+
+    /**
+     * Searches for any number of translations that match the given criteria.
+     *
+     * @param $params
+     * @return mixed
+     */
+    public function getByCriteria($params);
+
+    /**
+     * Identical to getByCriteria, but returns the first result.
+     *
+     * @param $params
+     * @return mixed
+     */
+    public function getOneByCriteria($params);
 }
