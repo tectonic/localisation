@@ -34,6 +34,6 @@ class EngineTest extends TestCase
 
         $this->translator->registerTransformer($invalidTransformer);
 
-        $this->assertNull($this->translator->translate($objectInQuestion));
+        $this->assertEquals($objectInQuestion, $this->translator->translate($objectInQuestion));
     }
 }

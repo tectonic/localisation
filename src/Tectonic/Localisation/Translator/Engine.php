@@ -36,6 +36,8 @@ class Engine
                 return $transformer->transform($object, $language);
             }
         }
+
+        return $object;
     }
 
     /**
