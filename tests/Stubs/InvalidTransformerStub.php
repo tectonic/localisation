@@ -15,5 +15,9 @@ class InvalidTransformerStub implements TransformerInterface
         // won't do anything
     }
 
+    public function shallow($object)
+    {
+        // TODO: Implement shallow() method.
+    }
 }
  

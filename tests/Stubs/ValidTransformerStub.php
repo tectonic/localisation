@@ -18,7 +18,17 @@ class ValidTransformerStub implements TransformerInterface
      */
     public function transform($object)
     {
-        return 'done';
+        return 'transformation complete';
     }
 
+    /**
+     * Same as transform but should only translate objects one-level deep.
+     *
+     * @param object $object
+     * @return mixed
+     */
+    public function shallow($object)
+    {
+        return 'shallow transformation complete';
+    }
 }
