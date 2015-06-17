@@ -14,7 +14,7 @@ interface TransformerInterface
 
     /**
      * Once a transformer for an object has been found, it then must do whatever work is necessary on that object.
-     *
+     * 
      * @param object $object
      * @return mixed
      */

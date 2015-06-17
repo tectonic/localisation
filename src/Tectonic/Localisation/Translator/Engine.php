@@ -34,13 +34,7 @@ class Engine
      */
     public function translate($object, $language = null)
     {
-        foreach ($this->transformers as $transformer) {
-            if ($transformer->isAppropriateFor($object)) {
-                return $transformer->transform($object, $language);
-            }
-        }
-
-        return $object;
+        return $this->transform($object, $language, 'transform');
     }
 
     /**
@@ -52,7 +46,26 @@ class Engine
      */
     public function shallow($object, $language = null)
     {
+        return $this->transform($object, $language, 'shallow');
+    }
 
+    /**
+     * Finds the correct transformer and then calls the appropriate method, if found.
+     *
+     * @param object $object
+     * @param string|null $language
+     * @param string $method
+     * @return mixed
+     */
+    private function transform($object, $language, $method)
+    {
+        foreach ($this->transformers as $transformer) {
+            if ($transformer->isAppropriateFor($object)) {
+                return $transformer->$method($object, $language);
+            }
+        }
+
+        return $object;
     }
 
     /**
