@@ -32,4 +32,19 @@ trait Translatable
 
         return array_pop($namespace);
     }
+
+    /**
+     * Returns a unique cache key string that is used by the ModelTranslator to cache the model, to prevent translating
+     * the same model numerous times. This is critical for complex layouts that pull in a lot of inter-related models.
+     *
+     * @return string
+     */
+    public function getTranslationCacheKey()
+    {
+        if ($this->exists) {
+            return __CLASS__.'-'.$this->id.'-'.$this->updatedAt;
+        }
+
+        return '-new';
+    }
 }
