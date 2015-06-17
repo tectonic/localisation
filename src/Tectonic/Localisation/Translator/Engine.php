@@ -27,7 +27,10 @@ class Engine
     /**
      * The translate method is simply a helper that can be used as the entry point for all translations.
      *
+     * @deprecated
      * @param mixed $object
+     * @param null $language
+     * @return mixed
      */
     public function translate($object, $language = null)
     {
@@ -38,6 +41,18 @@ class Engine
         }
 
         return $object;
+    }
+
+    /**
+     * Same as translate, but only translate the first level of objects.
+     *
+     * @param mixed $object
+     * @param string|null $language
+     * @return mixed
+     */
+    public function shallow($object, $language = null)
+    {
+
     }
 
     /**
