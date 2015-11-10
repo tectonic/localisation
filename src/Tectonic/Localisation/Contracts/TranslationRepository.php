@@ -3,7 +3,7 @@ namespace Tectonic\Localisation\Contracts;
 
 use Tectonic\Localisation\Translator\ResourceCriteria;
 
-interface TranslationRepositoryInterface
+interface TranslationRepository
 {
     /**
      * When searching for translations to be applied to an entity, or a collection of entities,

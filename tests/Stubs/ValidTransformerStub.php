@@ -1,9 +1,9 @@
 <?php
 namespace Tests\Stubs;
 
-use Tectonic\Localisation\Contracts\TransformerInterface;
+use Tectonic\Localisation\Contracts\Transformer;
 
-class ValidTransformerStub implements TransformerInterface
+class ValidTransformerStub implements Transformer
 {
     public function isAppropriateFor($object)
     {

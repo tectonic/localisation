@@ -34,8 +34,9 @@ class ResourceCriteria
     /**
      * Register a new id for a given resource.
      *
-     * @param $resource
-     * @param $id
+     * @param string $resource
+     * @param integer $id
+     * @throws \Exception
      */
     public function addId($resource, $id)
     {

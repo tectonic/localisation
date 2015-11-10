@@ -1,7 +1,7 @@
 <?php
 namespace Tectonic\Localisation\Contracts;
 
-interface TransformerInterface
+interface Transformer
 {
     /**
      * Implementations should take an object as a parameter, and then respond with a boolean

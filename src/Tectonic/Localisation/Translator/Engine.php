@@ -1,7 +1,7 @@
 <?php
 namespace Tectonic\Localisation\Translator;
 
-use Tectonic\Localisation\Contracts\TransformerInterface;
+use Tectonic\Localisation\Contracts\Transformer;
 
 /**
  * Class Engine
@@ -72,9 +72,9 @@ class Engine
      * Registers a new transformer that can be used for translations. You can pass
      * many transformers at once, if you so wish.
      *
-     * @param TransformerInterface $transformers
+     * @param Transformer $transformers
      */
-    public function registerTransformer(TransformerInterface ...$transformers)
+    public function registerTransformer(Transformer ...$transformers)
     {
         foreach ($transformers as $transformer) {
             $this->transformers[] = $transformer;

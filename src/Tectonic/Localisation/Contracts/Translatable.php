@@ -1,7 +1,7 @@
 <?php
 namespace Tectonic\Localisation\Contracts;
 
-interface TranslatableInterface
+interface Translatable
 {
     /**
      * Returns the id for the record implementing the interface.
@@ -23,4 +23,13 @@ interface TranslatableInterface
      * @return string
      */
     public function getResourceName();
+
+    /**
+     * Add a translation to the model or entity.
+     *
+     * @param string $language
+     * @param string $key
+     * @param mixed $value
+     */
+    public function addTranslation($language, $key, $value);
 }

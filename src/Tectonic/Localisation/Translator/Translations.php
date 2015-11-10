@@ -1,14 +1,37 @@
 <?php
 namespace Tectonic\Localisation\Translator;
 
-trait Translatable
+trait Translations
 {
+    /**
+     * Translations stored on the object as an array.
+     *
+     * @var array
+     */
+    protected $translations = [];
+
     /**
      * Returns an array of the field names that can be used for translations.
      *
      * @return array
      */
     abstract public function getTranslatableFields();
+
+    /**
+     * Add a translation for the model, with a key-value, based on the language.
+     *
+     * @param string $language
+     * @param string $key
+     * @param mixed $value
+     */
+    public function addTranslation($language, $key, $value)
+    {
+        if (!isset($this->translations[$language])) {
+            $this->translations[$language] = [];
+        }
+
+        $this->translations[$language][$key] = $value;
+    }
 
     /**
      * Returns the id of the model or entity in question.
