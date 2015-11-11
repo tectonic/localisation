@@ -8,7 +8,7 @@ trait Translations
      *
      * @var array
      */
-    protected $translations = [];
+    public $translated = [];
 
     /**
      * Returns an array of the field names that can be used for translations.
@@ -26,11 +26,11 @@ trait Translations
      */
     public function addTranslation($language, $key, $value)
     {
-        if (!isset($this->translations[$language])) {
-            $this->translations[$language] = [];
+        if (!isset($this->translated[$language])) {
+            $this->translated[$language] = [];
         }
 
-        $this->translations[$language][$key] = $value;
+        $this->translated[$language][$key] = $value;
     }
 
     /**
