@@ -41,7 +41,7 @@ MyTransformer should implement the TransformerInterface that is defined within t
 
 ```php
 <?php
-class MyTransformer implements TransformerInterface {
+class MyTransformer implements Transformer {
     public function isAppropriateFor($object) {}
     public function transform($object) {}
 }
