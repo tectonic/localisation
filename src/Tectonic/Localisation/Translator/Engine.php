@@ -31,7 +31,7 @@ class Engine
      */
     public function translate($object, $language = null)
     {
-        foreach ($this->transformers as $transformer) {
+        foreach ($this->transformers() as $transformer) {
             if ($transformer->isAppropriateFor($object)) {
                 return $transformer->transform($object, $language);
             }
@@ -51,5 +51,15 @@ class Engine
         foreach ($transformers as $transformer) {
             $this->transformers[] = $transformer;
         }
+    }
+
+    /**
+     * Return the available transformers.
+     *
+     * @return array
+     */
+    private function transformers()
+    {
+        return array_reverse($this->transofrmers);
     }
 }
