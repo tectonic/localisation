@@ -87,6 +87,6 @@ class Engine
      */
     private function transformers()
     {
-        return array_reverse($this->transofrmers);
+        return array_reverse($this->transformers);
     }
 }
