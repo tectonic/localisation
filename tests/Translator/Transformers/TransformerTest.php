@@ -2,7 +2,7 @@
 namespace Tests\Translator\Transformers;
 
 use Mockery as m;
-use Tectonic\Localisation\Contracts\TranslationRepositoryInterface;
+use Tectonic\Localisation\Contracts\TranslationRepository;
 use Tests\Stubs\TransformerStub;
 use Tests\TestCase;
 
@@ -13,7 +13,7 @@ class TransformerTest extends TestCase
 
     public function init()
     {
-        $this->translationRepository = m::spy(TranslationRepositoryInterface::class);
+        $this->translationRepository = m::spy(TranslationRepository::class);
 
         $this->transformer = new TransformerStub;
         $this->transformer->setTranslationRepository($this->translationRepository);

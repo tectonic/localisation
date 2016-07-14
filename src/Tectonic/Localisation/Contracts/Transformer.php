@@ -1,7 +1,7 @@
 <?php
 namespace Tectonic\Localisation\Contracts;
 
-interface TransformerInterface
+interface Transformer
 {
     /**
      * Implementations should take an object as a parameter, and then respond with a boolean
@@ -19,4 +19,12 @@ interface TransformerInterface
      * @return mixed
      */
     public function transform($object);
+
+    /**
+     * Same as transform but should only translate objects one-level deep.
+     *
+     * @param object $object
+     * @return mixed
+     */
+    public function shallow($object);
 }

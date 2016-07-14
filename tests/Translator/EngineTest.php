@@ -24,7 +24,8 @@ class EngineTest extends TestCase
 
         $this->translator->registerTransformer($invalidTransformer, $validTransformer);
 
-        $this->assertEquals('done', $this->translator->translate($objectInQuestion));
+        $this->assertEquals('transformation complete', $this->translator->translate($objectInQuestion));
+        $this->assertEquals('shallow transformation complete', $this->translator->shallow($objectInQuestion));
     }
 
     public function testOnlyInvalidTransformers()

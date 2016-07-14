@@ -1,7 +1,7 @@
 <?php
 namespace Tectonic\Localisation\Translator;
 
-use Tectonic\Localisation\Contracts\TransformerInterface;
+use Tectonic\Localisation\Contracts\Transformer;
 
 /**
  * Class Engine
@@ -28,12 +28,39 @@ class Engine
      * The translate method is simply a helper that can be used as the entry point for all translations.
      *
      * @param mixed $object
+     * @param null $language
+     * @return mixed
      */
     public function translate($object, $language = null)
     {
+        return $this->transform($object, $language, 'transform');
+    }
+
+    /**
+     * Same as translate, but only translate the first level of objects.
+     *
+     * @param mixed $object
+     * @param string|null $language
+     * @return mixed
+     */
+    public function shallow($object, $language = null)
+    {
+        return $this->transform($object, $language, 'shallow');
+    }
+
+    /**
+     * Finds the correct transformer and then calls the appropriate method, if found.
+     *
+     * @param object $object
+     * @param string|null $language
+     * @param string $method
+     * @return mixed
+     */
+    private function transform($object, $language, $method)
+    {
         foreach ($this->transformers() as $transformer) {
             if ($transformer->isAppropriateFor($object)) {
-                return $transformer->transform($object, $language);
+                return $transformer->$method($object, $language);
             }
         }
 
@@ -44,9 +71,9 @@ class Engine
      * Registers a new transformer that can be used for translations. You can pass
      * many transformers at once, if you so wish.
      *
-     * @param TransformerInterface $transformers
+     * @param Transformer $transformers
      */
-    public function registerTransformer(TransformerInterface ...$transformers)
+    public function registerTransformer(Transformer ...$transformers)
     {
         foreach ($transformers as $transformer) {
             $this->transformers[] = $transformer;

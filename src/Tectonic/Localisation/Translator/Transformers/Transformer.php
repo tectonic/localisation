@@ -2,14 +2,14 @@
 namespace Tectonic\Localisation\Translator\Transformers;
 
 use Tectonic\Localisation\Translator\ResourceCriteria;
-use Tectonic\Localisation\Contracts\TranslationRepositoryInterface;
+use Tectonic\Localisation\Contracts\TranslationRepository;
 
 abstract class Transformer
 {
     /**
      * Stores the repository that will be used for fetching translations.
      *
-     * @var TranslationRepositoryInterface
+     * @var TranslationRepository
      */
     protected $translationRepository;
 
@@ -57,9 +57,9 @@ abstract class Transformer
     /**
      * Sets the repository that will be used for translation retrieval.
      *
-     * @param TranslationRepositoryInterface $repository
+     * @param TranslationRepository $repository
      */
-    public function setTranslationRepository(TranslationRepositoryInterface $repository)
+    public function setTranslationRepository(TranslationRepository $repository)
     {
         $this->translationRepository = $repository;
     }

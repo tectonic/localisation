@@ -1,9 +1,9 @@
 <?php
 namespace Tests\Stubs;
 
-use Tectonic\Localisation\Contracts\TransformerInterface;
+use Tectonic\Localisation\Contracts\Transformer;
 
-class InvalidTransformerStub implements TransformerInterface
+class InvalidTransformerStub implements Transformer
 {
     public function isAppropriateFor($object)
     {
@@ -15,5 +15,9 @@ class InvalidTransformerStub implements TransformerInterface
         // won't do anything
     }
 
+    public function shallow($object)
+    {
+        // TODO: Implement shallow() method.
+    }
 }
  

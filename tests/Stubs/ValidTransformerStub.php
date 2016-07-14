@@ -1,9 +1,9 @@
 <?php
 namespace Tests\Stubs;
 
-use Tectonic\Localisation\Contracts\TransformerInterface;
+use Tectonic\Localisation\Contracts\Transformer;
 
-class ValidTransformerStub implements TransformerInterface
+class ValidTransformerStub implements Transformer
 {
     public function isAppropriateFor($object)
     {
@@ -18,7 +18,17 @@ class ValidTransformerStub implements TransformerInterface
      */
     public function transform($object)
     {
-        return 'done';
+        return 'transformation complete';
     }
 
+    /**
+     * Same as transform but should only translate objects one-level deep.
+     *
+     * @param object $object
+     * @return mixed
+     */
+    public function shallow($object)
+    {
+        return 'shallow transformation complete';
+    }
 }
