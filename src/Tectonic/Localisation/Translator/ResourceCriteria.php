@@ -32,6 +32,26 @@ class ResourceCriteria
     }
 
     /**
+     * Returns true if the resource criteria is valid.
+     *
+     * @return bool
+     */
+    public function valid()
+    {
+        return !empty($this->resources);
+    }
+
+    /**
+     * Returns true if the resource criteria is invalid.
+     *
+     * @return bool
+     */
+    public function invalid()
+    {
+        return !$this->valid();
+    }
+
+    /**
      * Register a new id for a given resource.
      *
      * @param string $resource
