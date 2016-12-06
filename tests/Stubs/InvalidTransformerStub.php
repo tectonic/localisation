@@ -10,12 +10,12 @@ class InvalidTransformerStub implements Transformer
         return false;
     }
 
-    public function transform($object)
+    public function transform($object, $language)
     {
         // won't do anything
     }
 
-    public function shallow($object)
+    public function shallow($object, $language, array $fields)
     {
         // TODO: Implement shallow() method.
     }
