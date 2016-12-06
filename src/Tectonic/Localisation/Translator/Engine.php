@@ -33,34 +33,38 @@ class Engine
      */
     public function translate($object, $language = null)
     {
-        return $this->transform($object, $language, 'transform');
+        return $this->transform($object, function($transformer) use ($object, $language) {
+            return $transformer->transform($object, $language);
+        });
     }
-
+    
     /**
      * Same as translate, but only translate the first level of objects.
      *
      * @param mixed $object
      * @param string|null $language
+     * @param array $fields
      * @return mixed
      */
-    public function shallow($object, $language = null)
+    public function shallow($object, $language = null, array $fields = [])
     {
-        return $this->transform($object, $language, 'shallow');
+        return $this->transform($object, function($transformer) use ($object, $language, $fields) {
+            return $transformer->shallow($object, $language, $fields);
+        });
     }
 
     /**
      * Finds the correct transformer and then calls the appropriate method, if found.
      *
      * @param object $object
-     * @param string|null $language
-     * @param string $method
+     * @param \Closure $function
      * @return mixed
      */
-    private function transform($object, $language, $method)
+    private function transform($object, \Closure $function)
     {
         foreach ($this->transformers() as $transformer) {
             if ($transformer->isAppropriateFor($object)) {
-                return $transformer->$method($object, $language);
+                return $function($transformer);
             }
         }
 
