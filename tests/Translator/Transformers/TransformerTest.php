@@ -31,6 +31,7 @@ class TransformerTest extends TestCase
 
     public function testResourceCriteriaCreation()
     {
+        self::expectNotToPerformAssertions();
         $resources = ['Resource' => [1, 2]];
 
         $this->transformer->getTranslations($resources);
@@ -38,4 +39,3 @@ class TransformerTest extends TestCase
         $this->translationRepository->shouldHaveReceived('getByResourceCriteria')->once();
     }
 }
- 
