@@ -39,18 +39,6 @@ class Engine
     }
 
     /**
-     * Alias for translate
-     *
-     * @param $object
-     * @param  null  $language
-     * @return mixed|object
-     */
-    public function get($object, $language = null)
-    {
-        return $this->translate($object, $language);
-    }
-
-    /**
      * Same as translate, but only translate the first level of objects.
      *
      * @param mixed $object

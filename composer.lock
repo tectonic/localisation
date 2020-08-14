@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d5f23a90e63241bb6adeb3cafe270567",
+    "content-hash": "46045953908c3c6764516f90d5aeef58",
     "packages": [],
     "packages-dev": [
         {
@@ -126,30 +126,33 @@
         },
         {
             "name": "mockery/mockery",
-            "version": "1.3.x-dev",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mockery/mockery.git",
-                "reference": "d55b877429197625f256094a6b9c1c3d28a62599"
+                "reference": "20cab678faed06fac225193be281ea0fddb43b93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mockery/mockery/zipball/d55b877429197625f256094a6b9c1c3d28a62599",
-                "reference": "d55b877429197625f256094a6b9c1c3d28a62599",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/20cab678faed06fac225193be281ea0fddb43b93",
+                "reference": "20cab678faed06fac225193be281ea0fddb43b93",
                 "shasum": ""
             },
             "require": {
                 "hamcrest/hamcrest-php": "^2.0.1",
                 "lib-pcre": ">=7.0",
-                "php": ">=5.6.0"
+                "php": "^7.3 || ^8.0"
+            },
+            "conflict": {
+                "phpunit/phpunit": "<8.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^5.7.10|^6.5|^7.5|^8.5|^9.3"
+                "phpunit/phpunit": "^8.5 || ^9.3"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3.x-dev"
+                    "dev-master": "1.4.x-dev"
                 }
             },
             "autoload": {
@@ -187,7 +190,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2020-08-11T09:33:20+00:00"
+            "time": "2020-08-11T18:10:13+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -400,12 +403,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "1ac416df3f66c542f2d3688925105b539f064b64"
+                "reference": "584a54ca0dadeee4e07c959e24fe61ffa4df22a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/1ac416df3f66c542f2d3688925105b539f064b64",
-                "reference": "1ac416df3f66c542f2d3688925105b539f064b64",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/584a54ca0dadeee4e07c959e24fe61ffa4df22a2",
+                "reference": "584a54ca0dadeee4e07c959e24fe61ffa4df22a2",
                 "shasum": ""
             },
             "require": {
@@ -444,7 +447,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2020-07-21T08:16:41+00:00"
+            "time": "2020-08-12T17:52:10+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -805,6 +808,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2019-09-17T06:23:10+00:00"
         },
         {
@@ -813,12 +817,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "5dad2475cf8ed202865403a3498f5d5e718c798f"
+                "reference": "bb1d32b9f6efd49eaefc6b998302fc59c4b5d4fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/5dad2475cf8ed202865403a3498f5d5e718c798f",
-                "reference": "5dad2475cf8ed202865403a3498f5d5e718c798f",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/bb1d32b9f6efd49eaefc6b998302fc59c4b5d4fc",
+                "reference": "bb1d32b9f6efd49eaefc6b998302fc59c4b5d4fc",
                 "shasum": ""
             },
             "require": {
@@ -898,7 +902,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-08-10T09:32:48+00:00"
+            "time": "2020-08-12T08:20:05+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -1693,7 +1697,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.2.0"
+        "php": "^7.2"
     },
     "platform-dev": [],
     "plugin-api-version": "1.1.0"
