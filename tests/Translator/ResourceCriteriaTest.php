@@ -8,7 +8,7 @@ class ResourceCriteriaTest extends TestCase
 {
     private $resourceCriteria;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -33,11 +33,9 @@ class ResourceCriteriaTest extends TestCase
         $this->assertEquals([1, 3, 5], $this->resourceCriteria->getIds('resource'));
     }
 
-    /**
-     * @expectedException Exception
-     */
     public function testAddingIdToNonExistentResourceShouldThrowException()
     {
+        $this->expectException(\Exception::class);
         $this->resourceCriteria->addId('resource', 1);
     }
 }

@@ -37,7 +37,7 @@ class Engine
             return $transformer->transform($object, $language);
         });
     }
-    
+
     /**
      * Same as translate, but only translate the first level of objects.
      *
