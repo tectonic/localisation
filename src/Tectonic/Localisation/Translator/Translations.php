@@ -30,7 +30,11 @@ trait Translations
             $this->translated[$language] = [];
         }
 
-        $this->translated[$language][$key] = $value;
+        if (method_exists($this, $method = 'setTranslated'.ucfirst($key).'Property')) {
+            $this->translated[$language][$key] = $this->$method($value);
+        } else{
+            $this->translated[$language][$key] = $value;
+        }
     }
 
     /**

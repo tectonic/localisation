@@ -9,11 +9,17 @@ class TranslatableStub
 
     /**
      * Returns an array of the field names that can be used for translations.
-     *
-     * @return array
      */
-    public function getTranslatableFields()
+    public function getTranslatableFields(): array
     {
-        return ['title'];
+        return ['title', 'options'];
+    }
+
+    /**
+     * Translated property setter
+     */
+    protected function setTranslatedOptionsProperty($value): array
+    {
+        return explode(',', $value);
     }
 }
