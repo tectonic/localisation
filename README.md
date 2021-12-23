@@ -54,11 +54,11 @@ Once you've registered your transformers, you're ready to go!
 ## Translatable interface
 Can be implemented by a Model or Entity in order to manage its `translated` property. The implementation can be fulfilled by using the `Translations` trait in conjunction with implementing the `getTranslatableFields` method in the Model or Entity.
 
-`addTranslations` can be used to fill the `translated` property with translations loaded from the database. The trait `addTranslations` method also provides a `setter` functionality for translated properties which can be used to modify the value for the specified property as in the example:
+`addTranslation` can be used to fill the `translated` property with translations loaded from the database. The trait `addTranslation` method also provides a `setter` functionality for translated properties which can be used to modify the value for the specified property as in the example:
 ```php
     /**
      * The database $value for the `options` property is a comma separated list.
-     * This setter will be used by the `addTranslations` method 
+     * This setter will be used by the `addTranslation` method 
      * so when we access the translated property `options` it will be an array of the exploded values.
      */
     protected function setTranslatedOptionsProperty($value): array
