@@ -37,4 +37,3 @@ class TranslatableTest extends TestCase
         $this->assertEquals(['Option 1', 'Option2'], $this->translatable->translated['en_GB']['options']);
     }
 }
- 
