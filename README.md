@@ -47,7 +47,7 @@ class MyTransformer implements Transformer {
 }
 ```
 
-The isAppropriateFor method should return true if you transformer knows how to manage that object. If it does not, it should return false. The transform() method does the actual transformation work.
+The isAppropriateFor method should return true if your transformer knows how to manage that object. If it does not, it should return false. The transform() method does the actual transformation work.
 
 Once you've registered your transformers, you're ready to go!
 
@@ -61,9 +61,9 @@ Can be implemented by a Model or Entity in order to manage its `translated` prop
      * This setter will be used by the `addTranslation` method 
      * so when we access the translated property `options` it will be an array of the exploded values.
      */
-    protected function setTranslatedOptionsProperty($value): array
+    protected function setTranslatedOptionsProperty($language, $key, $value): void
     {
-        return explode(',', $value);
+        $this->translated[$language][$key] = explode(',', $value);
     }
 ```
 

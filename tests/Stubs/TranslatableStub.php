@@ -18,8 +18,8 @@ class TranslatableStub
     /**
      * Translated property setter
      */
-    protected function setTranslatedOptionsProperty($value): array
+    protected function setTranslatedOptionsProperty($language, $key, $value): void
     {
-        return explode(',', $value);
+        $this->translated[$language][$key] = explode(',', $value);;
     }
 }
