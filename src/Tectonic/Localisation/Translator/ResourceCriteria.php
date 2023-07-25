@@ -14,17 +14,13 @@ class ResourceCriteria
 {
     /**
      * Stores the resources and their affiliated IDs for searching.
-     *
-     * @var array
      */
-    private $resources = [];
+    private array $resources = [];
 
     /**
      * Register a new resource.
-     *
-     * @param $resource
      */
-    public function addResource($resource)
+    public function addResource(string $resource): void
     {
         if (!isset($this->resources[$resource])) {
             $this->resources[$resource] = [];
@@ -33,32 +29,26 @@ class ResourceCriteria
 
     /**
      * Returns true if the resource criteria is valid.
-     *
-     * @return bool
      */
-    public function valid()
+    public function valid(): bool
     {
         return !empty($this->resources);
     }
 
     /**
      * Returns true if the resource criteria is invalid.
-     *
-     * @return bool
      */
-    public function invalid()
+    public function invalid(): bool
     {
         return !$this->valid();
     }
 
     /**
      * Register a new id for a given resource.
-     *
-     * @param string $resource
-     * @param integer $id
+
      * @throws \Exception
      */
-    public function addId($resource, $id)
+    public function addId(string $resource, ?int $id): void
     {
         if (!isset($this->resources[$resource])) {
             $message = "Resource [$resource] does not exist. Make sure you've
@@ -72,22 +62,34 @@ class ResourceCriteria
 
     /**
      * Return all resources and their ids.
-     *
-     * @return array
      */
-    public function getResources()
+    public function getResources(): array
     {
         return array_keys($this->resources);
     }
 
     /**
      * Return all ids for a given resource.
-     *
-     * @param $resource
-     * @return mixed
      */
-    public function getIds($resource)
+    public function getIds(string $resource): array
     {
         return $this->resources[$resource];
+    }
+
+    /**
+     * Forget a given id for a given resource.
+     */
+    public function forgetId(string $resource, int $id): void
+    {
+        $key = array_search($id, $this->resources[$resource]);
+        unset($this->resources[$resource][$key]);
+    }
+
+    /**
+     * Forget a given resource.
+     */
+    public function forgetResource($resource): void
+    {
+        unset($this->resources[$resource]);
     }
 }
