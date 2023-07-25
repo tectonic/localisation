@@ -38,4 +38,27 @@ class ResourceCriteriaTest extends TestCase
         $this->expectException(\Exception::class);
         $this->resourceCriteria->addId('resource', 1);
     }
+    
+    public function testForgetId()
+    {
+        $this->resourceCriteria->addResource('resource');
+        $this->resourceCriteria->addId('resource', 1);
+        $this->resourceCriteria->addId('resource', 3);
+        $this->assertCount(2, $this->resourceCriteria->getIds('resource'));
+        
+        $this->resourceCriteria->forgetId('resource', 1);
+        $this->assertCount(1, $resourceCriterion = $this->resourceCriteria->getIds('resource'));
+        $this->assertEquals([3], array_values($resourceCriterion));
+    }
+    
+    public function testForgetResource()
+    {
+        $this->resourceCriteria->addResource('resource');
+        $this->resourceCriteria->addResource('another');
+        $this->assertCount(2, $this->resourceCriteria->getResources());
+        
+        $this->resourceCriteria->forgetResource('resource');
+        $this->assertCount(1, $resourceCriterion = $this->resourceCriteria->getResources());
+        $this->assertEquals(['another'], array_values($resourceCriterion));
+    }
 }

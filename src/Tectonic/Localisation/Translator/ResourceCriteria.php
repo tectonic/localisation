@@ -86,7 +86,7 @@ class ResourceCriteria
     }
 
     /**
-     * Forget a given id for a given resource.
+     * Forget a given resource.
      */
     public function forgetResource($resource): void
     {
