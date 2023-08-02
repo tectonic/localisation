@@ -61,7 +61,7 @@ class ResourceCriteria
     }
 
     /**
-     * Return all resources and their ids.
+     * Return all resource keys.
      */
     public function getResources(): array
     {
