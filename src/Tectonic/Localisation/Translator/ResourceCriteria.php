@@ -61,7 +61,7 @@ class ResourceCriteria
     }
 
     /**
-     * Return all resources and their ids.
+     * Return all resource keys.
      */
     public function getResources(): array
     {
@@ -85,11 +85,24 @@ class ResourceCriteria
         unset($this->resources[$resource][$key]);
     }
 
+    public function forgetIds(string $resource, int ...$ids): void
+    {
+        $this->resources[$resource] = array_filter(
+            $this->resources[$resource],
+            fn($id) => !in_array($id, $ids)
+        );
+    }
+
     /**
      * Forget a given resource.
      */
     public function forgetResource($resource): void
     {
         unset($this->resources[$resource]);
+    }
+
+    public function all(): array
+    {
+        return $this->resources;
     }
 }

@@ -61,4 +61,31 @@ class ResourceCriteriaTest extends TestCase
         $this->assertCount(1, $resourceCriterion = $this->resourceCriteria->getResources());
         $this->assertEquals(['another'], array_values($resourceCriterion));
     }
+    
+    public function testAll()
+    {
+        $this->resourceCriteria->addResource('resource');
+        $this->resourceCriteria->addResource('another');
+        $this->resourceCriteria->addId('resource', 1);
+        $this->resourceCriteria->addId('resource', 3);
+        $this->resourceCriteria->addId('another', 1);
+        
+        $all = $this->resourceCriteria->all();
+        $this->assertCount(2, $all);
+        $this->assertEquals(['resource', 'another'], array_keys($all));
+        $this->assertEquals([1, 3], $all['resource']);
+        $this->assertEquals([1], $all['another']);
+    }
+    
+    public function testForgetIds()
+    {
+        $this->resourceCriteria->addResource('resource');
+        $this->resourceCriteria->addId('resource', 1);
+        $this->resourceCriteria->addId('resource', 3);
+        $this->resourceCriteria->addId('resource', 5);
+        
+        $this->resourceCriteria->forgetIds('resource', 1, 5);
+        $this->assertCount(1, $ids = $this->resourceCriteria->getIds('resource'));
+        $this->assertEquals([3], array_values($ids));
+    }
 }
