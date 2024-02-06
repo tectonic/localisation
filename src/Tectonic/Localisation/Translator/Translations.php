@@ -8,7 +8,7 @@ trait Translations
      *
      * @var array
      */
-    public $translated = [];
+    protected $translated = [];
 
     /**
      * Returns an array of the field names that can be used for translations.
@@ -69,5 +69,19 @@ trait Translations
         }
 
         return '-new';
+    }
+
+    public function translated()
+    {
+        return $this->replaceStringInArrayValues('&quot;', '&', $this->translated);
+    }
+
+    private function replaceStringInArrayValues(string $search, string $replace, array $keyValuesArray)
+    {
+        return array_map(function ($value) use ($search, $replace) {
+            return is_array($value)
+                ? $this->replaceStringInArrayValues($search, $replace, $value)
+                : str_replace($search, $replace, $value);
+        }, $keyValuesArray);
     }
 }
